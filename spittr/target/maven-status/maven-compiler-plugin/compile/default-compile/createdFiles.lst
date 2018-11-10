@@ -1,0 +1,7 @@
+spittr/web/TestController.class
+spittr/config/RootConfig.class
+spittr/model/Student.class
+spittr/config/SpittrWebAppInitializer.class
+spittr/web/HomeController.class
+spittr/web/SpittrWeb.class
+spittr/config/WebConfig.class
