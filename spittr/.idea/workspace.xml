@@ -1,24 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="78d47062-b7f5-4508-997a-836d424aff45" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spittr/Spitter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spittr/Spitter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spittr/data/SpitterRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spittr/data/SpitterRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spittr/data/impl/SpitterRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spittr/data/impl/SpitterRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/spittr/web/SpitterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/spittr/web/SpitterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spittr/data/SpitterRepository.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spittr/data/SpitterRepository.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spittr/data/impl/SpitterRepositoryImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spittr/data/impl/SpitterRepositoryImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/spittr/web/SpitterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spittr/web/SpitterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-archiver/pom.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-archiver/pom.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/spittr.war" beforeDir="false" afterPath="$PROJECT_DIR$/target/spittr.war" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/spittr/web/HomeControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/spittr/web/SpitterControllerTest.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/spittr/web/SpittleControllerTest.class" beforeDir="false" />
-    </list>
+    <list default="true" id="78d47062-b7f5-4508-997a-836d424aff45" name="Default Changelist" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -71,14 +54,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/spittr/web/SpitterController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
-              <caret line="37" column="26" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="26" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="75">
+              <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -95,7 +75,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/spittr/Spitter.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="135">
@@ -333,7 +313,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541900808730" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1541900979310" />
     <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RunDashboard">
@@ -420,7 +400,7 @@
       <updated>1541847007030</updated>
       <workItem from="1541847029352" duration="1340000" />
       <workItem from="1541864392447" duration="2288000" />
-      <workItem from="1541894750594" duration="5660000" />
+      <workItem from="1541894750594" duration="5932000" />
     </task>
     <servers />
   </component>
@@ -457,11 +437,10 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="9288000" />
+    <option name="totallyTimeSpent" value="9560000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.25778133" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -479,7 +458,7 @@
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Spring" order="7" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.32952693" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="8" visible="true" weight="0.84339315" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32952693" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
@@ -670,6 +649,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/spittr/Spitter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/test/spittr/web/SpitterControllerTest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="269">
@@ -682,21 +671,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/spittr/web/SpitterController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
-          <caret line="37" column="26" selection-start-line="37" selection-start-column="14" selection-end-line="37" selection-end-column="26" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/spittr/Spitter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" column="10" selection-start-line="9" selection-start-column="10" selection-end-line="9" selection-end-column="10" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="75">
+          <caret line="11" column="22" lean-forward="true" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
         </state>
       </provider>
     </entry>
