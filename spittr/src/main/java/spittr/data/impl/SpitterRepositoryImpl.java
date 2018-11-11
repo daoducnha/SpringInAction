@@ -9,6 +9,11 @@ public class SpitterRepositoryImpl implements SpitterRepository {
 
   @Override
   public Spitter save(Spitter spitter) {
-    return null;
+    return spitter;
+  }
+
+  @Override
+  public Spitter findByUsername(String username) {
+    return new Spitter("Dao","Duc Nha","ducnha","123456");
   }
 }
