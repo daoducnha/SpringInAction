@@ -1,0 +1,13 @@
+spittr/data/SpitterRepository.class
+spittr/data/impl/SpittleRepositoryImpl.class
+spittr/Spitter.class
+spittr/web/SpitterController.class
+spittr/config/SpittrWebAppInitializer.class
+spittr/web/HomeController.class
+spittr/data/SpittleRepository.class
+spittr/Spittle.class
+spittr/config/RootConfig.class
+spittr/web/SpittleController.class
+spittr/data/impl/SpitterRepositoryImpl.class
+spittr/config/MyServletInitializer.class
+spittr/config/WebConfig.class

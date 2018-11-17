@@ -22,6 +22,12 @@ public class Spittle {
         this.longitude = longitude;
     }
 
+    public Spittle(Long id, String message, Date date, Double longitude, Double latitude) {
+
+        this(message,date,longitude,longitude);
+
+    }
+
     public Long getId() {
         return id;
     }

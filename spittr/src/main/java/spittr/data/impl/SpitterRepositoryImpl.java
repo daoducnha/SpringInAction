@@ -14,6 +14,7 @@ public class SpitterRepositoryImpl implements SpitterRepository {
 
   @Override
   public Spitter findByUsername(String username) {
-    return new Spitter("Dao","Duc Nha","ducnha","123456");
+    return null;
+//    return new Spitter("Dao","Duc Nha","ducnha","123456","example@email.com");
   }
 }
