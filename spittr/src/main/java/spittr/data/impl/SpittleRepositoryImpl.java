@@ -23,4 +23,9 @@ public class SpittleRepositoryImpl implements SpittleRepository {
   public Spittle findOne(long spittleId) {
     return new Spittle("Spittle " + Math.random()*10 , new Date());
   }
+
+  @Override
+  public void save(Spittle spittle) {
+    //TODO: Do some thing
+  }
 }

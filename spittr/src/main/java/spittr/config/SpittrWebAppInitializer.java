@@ -26,6 +26,7 @@ public class SpittrWebAppInitializer
 
     @Override
     protected void customizeRegistration(Dynamic registration) {
-        registration.setMultipartConfig(new MultipartConfigElement("/tmp/spittr/uploads"));
+        registration.setMultipartConfig(new MultipartConfigElement("/home/duc-nha"));
+//        registration.setMultipartConfig(new MultipartConfigElement("/tmp/spittr/uploads"));
     }
 }
