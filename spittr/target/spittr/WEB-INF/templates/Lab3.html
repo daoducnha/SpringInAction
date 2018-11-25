@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+  <head>
+       <meta charset="UTF-8">
+       <script src="https://unpkg.com/react@15/dist/react.min.js"></script>
+       <script src="https://unpkg.com/react-dom@15/dist/react-dom.min.js"></script>
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.24.0/babel.js"></script>
+
+  </head>
+  <body>
+      <div id="root"></div>
+      <script type="text/babel">
+       
+       function InputField(props){
+           return(
+               <div>
+                    <h2>{props.title}</h2>
+                    <input type = "text" name={props.name} value = {props.value} onChange={(event)=>props.handleChange(event)}/>
+               </div>
+            )
+       }
+       
+       function SelectField(props){
+           var array = ["Science Lab","Swimming","Cooking","Painting"]
+           return(
+               <div>
+                    <h2>{props.title}</h2>
+                    <select onChange={(event)=>props.handleChange(event)} name={props.name} value = {props.value}>
+                            {array.map((item,index)=>{
+                                return <option key={index} value={item}>{item}</option>
+                            })}
+                    </select>
+                </div>
+           )
+       }
+
+       function CheckBoxField(props){
+           var array = [
+                            "a) Dietary Restrictions",
+                            "b) Physical Disabilities",
+                            "c) Medical Needs"
+                        ]
+           return(
+               <div>
+                    <h2>{props.title}</h2>
+                    <input id="a"  type="checkbox" value = {props.isA} onChange={()=>props.handleCheckBox(0)}/>
+                    <label for="a">{array[0]}</label>
+
+                    <input id="b"  type="checkbox" value = {props.isB} onChange={()=>props.handleCheckBox(1)}/>
+                    <label for="b">{array[1]}</label>
+
+                    <input id="c"  type="checkbox" value = {props.isC} onChange={()=>props.handleCheckBox(2)}/>
+                    <label for="c">{array[2]}</label>    
+               </div>
+           )
+       }
+       
+       function Button(props){
+           var style = {
+               width: props.width,
+               height: props.height
+           }
+           return(
+               <button style = {style} onClick={props.handleClick}>{props.label}</button>
+           )
+       }
+       function Post(props){
+           return(
+               <tr>
+                    <th><Button label="X" handleClick={props.removeItem}/></th>
+                    <th>{props.firstName}</th>
+                    <th>{props.lastName}</th>
+                    <th>{props.activity}</th>
+                    <th>{props.restrictions}</th>
+               </tr>
+           )
+       }
+
+       function ListPost(props){
+           var columnLabels = ["Remove","FirstName","LastName","Activity","Restrictions"]
+           var style = {
+            width:"100%"
+           }
+           return(
+               <table style={style}>
+                    <tr>
+                        {columnLabels.map((item) => {
+                          return <th>{item}</th>
+                        })}
+                    </tr>
+                    
+                        {
+                            props.listPost.map((item, index) => {
+                                return (
+                                    <Post key={index} 
+                                    firstName={item.firstName}
+                                    lastName={item.lastName}
+                                    activity={item.selectActivity}
+                                    restrictions = {item.restrictions}
+                                    removeItem={()=>props.removeItem(index)}/>
+                                )
+                            })
+                        }
+                    
+               </table>
+           )
+       }
+
+       class App extends React.Component{
+           constructor(props){
+               super(props)
+               this.state = {items:[], 
+                                selectActivity: "Science Lab", 
+                                isA: 0, 
+                                isB: 0, 
+                                isC: 0
+                            }
+               
+           }
+           
+           handleChange(event){
+            this.setState({[event.target.name]: event.target.value})
+           }
+
+           addItem(){
+               var itemsCopy = this.state.items.slice();
+               itemsCopy.push({
+                                'firstName': this.state.inputFirstName,
+                                'lastName': this.state.inputLastName,
+                                'selectActivity': this.state.selectActivity,
+                                'restrictions' : this.state.showRestrictions
+                            })
+                        
+                this.setState({items: itemsCopy, 
+                                inputFirstName:"", 
+                                inputLastName:"", 
+                                selectActivity:"Science Lab", 
+                                isA: 0, isB: 0, isC: 0,
+                                showRestrictions: ""})
+           }
+           
+          handleCheckBox(index){
+              var cpIsA = this.state.isA;
+              var cpIsB = this.state.isB;
+              var cpIsC = this.state.isC;
+              var rs = this.state.showRestrictions;
+              if(index == 0){
+                  cpIsA = !cpIsA
+                  rs += " a "
+              }
+              if(index == 1){
+                  cpIsB = !cpIsB
+                  rs += " b "
+              }
+              if(index == 2){
+                  cpIsC = !cpIsC
+                  rs += " c "
+              }
+              this.setState({isA:cpIsA, isB:cpIsB, isC:cpIsC, showRestrictions: rs})
+          }
+
+
+           removeItem(index){
+               var itemsCopy = this.state.items.slice();
+               itemsCopy.splice(index, 1)
+               this.setState({items: itemsCopy})
+           }
+           render(){
+                var style = {
+                    width: 200,
+                    height: 50
+                }
+               return(
+                    <div>
+                        <div>
+                            <InputField title = "First Name" 
+                                        name = "inputFirstName" 
+                                        value = {this.state.inputFirstName} 
+                                        handleChange={this.handleChange.bind(this)}/>
+                            <InputField title="Last Name" 
+                                        name="inputLastName" 
+                                        value = {this.state.inputLastName} 
+                                        handleChange={this.handleChange.bind(this)}/>
+                            <SelectField title="Select Activity" 
+                                            name="selectActivity" 
+                                            value = {this.state.selectActivity} 
+                                            handleChange={this.handleChange.bind(this)}/>
+                            <CheckBoxField title="Check all that apply" 
+                                            name="checkAllThatApply" 
+                                           
+                                            handleCheckBox = {this.handleCheckBox}
+                                            isA = {this.state.isA}
+                                            isB = {this.state.isB}
+                                            isC = {this.state.isC}/>
+                            <button style={style} onClick={() => this.addItem()}>Submit</button>                
+                        </div>
+                        <div>
+                            <ListPost listPost={this.state.items} removeItem = {this.removeItem.bind(this)}/>
+                        </div>
+                    </div>
+               )
+           }
+       }
+
+        ReactDOM.render(
+          <App />,
+          document.getElementById("root")
+        )
+      </script>
+  
+  </body>
+</html>

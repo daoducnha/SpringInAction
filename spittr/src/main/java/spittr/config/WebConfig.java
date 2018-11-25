@@ -34,39 +34,39 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
     this.applicationContext = applicationContext;
   }
 
+  @Bean
+  public ViewResolver viewResolver(){
+    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
+    resolver.setPrefix("/WEB-INF/views/");
+    resolver.setSuffix(".html");
+    resolver.setExposeContextBeansAsAttributes(true);
+    return resolver;
+  }
+
 //  @Bean
-//  public ViewResolver viewResolver(){
-//    InternalResourceViewResolver resolver = new InternalResourceViewResolver();
-//    resolver.setPrefix("/WEB-INF/views/");
-//    resolver.setSuffix(".jsp");
-//    resolver.setExposeContextBeansAsAttributes(true);
+//  public ViewResolver viewResolver() {
+//    ThymeleafViewResolver resolver = new ThymeleafViewResolver();
+//    resolver.setTemplateEngine(templateEngine());
+//    resolver.setCharacterEncoding("UTF-8");
 //    return resolver;
 //  }
-
-  @Bean
-  public ViewResolver viewResolver() {
-    ThymeleafViewResolver resolver = new ThymeleafViewResolver();
-    resolver.setTemplateEngine(templateEngine());
-    resolver.setCharacterEncoding("UTF-8");
-    return resolver;
-  }
-
-  @Bean
-  public TemplateEngine templateEngine() {
-    SpringTemplateEngine engine = new SpringTemplateEngine();
-    engine.setEnableSpringELCompiler(true);
-    engine.setTemplateResolver(templateResolver());
-    return engine;
-  }
-
-  private ITemplateResolver templateResolver() {
-    SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
-    resolver.setApplicationContext(applicationContext);
-    resolver.setPrefix("/WEB-INF/templates/");
-    resolver.setSuffix(".html");
-    resolver.setTemplateMode("HTML5");
-    return resolver;
-  }
+//
+//  @Bean
+//  public TemplateEngine templateEngine() {
+//    SpringTemplateEngine engine = new SpringTemplateEngine();
+//    engine.setEnableSpringELCompiler(true);
+//    engine.setTemplateResolver(templateResolver());
+//    return engine;
+//  }
+//
+//  private ITemplateResolver templateResolver() {
+//    SpringResourceTemplateResolver resolver = new SpringResourceTemplateResolver();
+//    resolver.setApplicationContext(applicationContext);
+//    resolver.setPrefix("/WEB-INF/templates/");
+//    resolver.setSuffix(".html");
+//    resolver.setTemplateMode("HTML5");
+//    return resolver;
+//  }
 
   @Bean
   public MultipartResolver multipartResolver() {
