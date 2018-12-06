@@ -1,8 +1,11 @@
 package spittr.web;
 
 import java.io.File;
+
 import java.io.IOException;
 import javax.validation.Valid;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,7 +23,7 @@ import spittr.data.SpitterRepository;
 @Controller
 @RequestMapping("/spitter")
 public class SpitterController {
-
+  final static Logger log = LoggerFactory.getLogger(SpitterController.class);
   private SpitterRepository spitterRepository;
 
   @Autowired
@@ -44,7 +47,7 @@ public class SpitterController {
     if (error.hasErrors()) {
       return "registerForm";
     }
-
+    log.info("==============================Test================================");
 //    profilePicture.transferTo(
 //        new File("/home/duc-nha/GitHub/SpringInAction" + profilePicture.getOriginalFilename()));
     model.addAttribute("username", spitter.getUsername());
@@ -56,6 +59,7 @@ public class SpitterController {
   @RequestMapping(value = "/register", method = RequestMethod.GET)
   public String showRegistrationForm(Model model) {
     model.addAttribute(new Spitter());
+    log.info("==============================Test================================");
     return "registerForm";
   }
 
