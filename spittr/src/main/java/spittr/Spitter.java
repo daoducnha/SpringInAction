@@ -1,5 +1,6 @@
 package spittr;
 
+import java.io.IOException;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 import javax.validation.constraints.*;
@@ -97,5 +98,9 @@ public class Spitter {
   public int hashCode() {
     return HashCodeBuilder
         .reflectionHashCode(this, "firstName", "lastName", "username", "password", "email");
+  }
+
+  public static void main(String[] agrs)throws IOException {
+    System.out.println(ClassLoader.getSystemClassLoader());
   }
 }

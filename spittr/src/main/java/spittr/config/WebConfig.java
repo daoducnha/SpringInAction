@@ -1,36 +1,27 @@
 package spittr.config;
 
-import java.sql.DriverManager;
+import java.util.Properties;
 import javax.sql.DataSource;
-import org.apache.commons.dbcp.BasicDataSource;
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Description;
-import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabase;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
-import org.springframework.jndi.JndiObjectFactoryBean;
+import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.web.multipart.MultipartResolver;
 import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.DefaultServletHandlerConfigurer;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
-import org.springframework.web.servlet.view.InternalResourceViewResolver;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.spring4.SpringTemplateEngine;
 import org.thymeleaf.spring4.templateresolver.SpringResourceTemplateResolver;
 import org.thymeleaf.spring4.view.ThymeleafViewResolver;
-import org.thymeleaf.templatemode.TemplateMode;
 import org.thymeleaf.templateresolver.ITemplateResolver;
-import org.thymeleaf.templateresolver.ServletContextTemplateResolver;
-import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
 import spittr.data.SpitterRepository;
 import spittr.data.impl.JdbcSpitterRepository;
 
@@ -103,31 +94,46 @@ public class WebConfig extends WebMvcConfigurerAdapter implements ApplicationCon
 //  }
 
   //  using JDBC
-  @Bean
-  public DataSource dataSource() {
-    DriverManagerDataSource dataSource = new DriverManagerDataSource();
-    dataSource.setDriverClassName("org.h2.Driver");
-    dataSource.setUrl("jdbc:h2:tcp://localhost/~/spitter");
-    dataSource.setUsername("sa");
-    dataSource.setPassword("");
-    return dataSource;
-  }
+//  @Bean
+//  public DataSource dataSource() {
+//    DriverManagerDataSource dataSource = new DriverManagerDataSource();
+//    dataSource.setDriverClassName("org.h2.Driver");
+//    dataSource.setUrl("jdbc:h2:tcp://localhost/~/spitter");
+//    dataSource.setUsername("sa");
+//    dataSource.setPassword("");
+//    return dataSource;
+//  }
 
   //Embedded data source
-  public DataSource dataSource1() {
+  @Bean
+  public DataSource dataSource() {
     return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.H2)
-        .addScript("classpath:schema.sql").addScript("classpath:test-data.sql").build();
+        .addScript("classpath:schema.sql").build();
+//    addScript("classpath:test-data.sql").
+  }
+
+
+  @Bean
+  public LocalSessionFactoryBean sessionFactory(DataSource ds) {
+    LocalSessionFactoryBean sfb = new LocalSessionFactoryBean();
+    sfb.setDataSource(ds);
+    sfb.setPackagesToScan(new String[]{"com.habuma.spittr.domain"});
+    Properties prop = new Properties();
+    prop.setProperty("dialect", "org.hibernate.dialect.H2Dialect");
+    sfb.setHibernateProperties(prop);
+    return sfb;
   }
 
   @Bean
-  public JdbcTemplate jdbcTemplate(DataSource dataSource){
+  public JdbcTemplate jdbcTemplate(DataSource dataSource) {
     return new JdbcTemplate(dataSource);
   }
 
   @Bean
-  public SpitterRepository spitterRepository(JdbcTemplate jdbcTemplate){
+  public SpitterRepository spitterRepository(JdbcTemplate jdbcTemplate) {
     return new JdbcSpitterRepository(jdbcTemplate);
   }
+
   @Bean
   public MultipartResolver multipartResolver() {
     return new StandardServletMultipartResolver();
