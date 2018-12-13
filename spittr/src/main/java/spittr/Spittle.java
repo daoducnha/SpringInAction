@@ -1,60 +1,55 @@
 package spittr;
 
 import java.util.Date;
-import org.apache.commons.lang3.builder.*;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+@Entity
 public class Spittle {
-    private final Long id;
-    private final String message;
-    private final Date time;
-    private Double latitude;
-    private Double longitude;
+	
+	private Spittle() {}
+	
+	@Id
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	private Long id;
+	
+	@ManyToOne
+	@JoinColumn(name="spitter")
+	private Spitter spitter;
+	
+	@Column
+	private String message;
+	
+	@Column
+	private Date postedTime;
 
-    public Spittle(String message, Date time) {
-        this(message, time, null, null);
-    }
+	public Spittle(Long id, Spitter spitter, String message, Date postedTime) {
+		this.id = id;
+		this.spitter = spitter;
+		this.message = message;
+		this.postedTime = postedTime;
+	}
 
-    public Spittle(String message, Date time, Double latitude, Double longitude) {
-        this.id = null;
-        this.message = message;
-        this.time = time;
-        this.latitude = latitude;
-        this.longitude = longitude;
-    }
+	public Long getId() {
+		return this.id;
+	}
 
-    public Spittle(Long id, String message, Date date, Double longitude, Double latitude) {
+	public String getMessage() {
+		return this.message;
+	}
 
-        this(message,date,longitude,longitude);
+	public Date getPostedTime() {
+		return this.postedTime;
+	}
 
-    }
+	public Spitter getSpitter() {
+		return this.spitter;
+	}
 
-    public Long getId() {
-        return id;
-    }
-
-    public String getMessage() {
-        return message;
-    }
-
-    public Date getTime() {
-        return time;
-    }
-
-    public Double getLatitude() {
-        return latitude;
-    }
-
-    public Double getLongitude() {
-        return longitude;
-    }
-
-    @Override
-    public boolean equals(Object that) {
-        return EqualsBuilder.reflectionEquals(this, that, "id", "time");
-    }
-
-    @Override
-    public int hashCode() {
-        return HashCodeBuilder.reflectionHashCode(this, "id", "time");
-    }
 }

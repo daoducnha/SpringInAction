@@ -14,14 +14,15 @@ public class SpittleRepositoryImpl implements SpittleRepository {
   public List<Spittle> findSpittles(long max, int count) {
     List<Spittle> spittles = new ArrayList<Spittle>();
     for (int i = 0; i < count; i++) {
-      spittles.add(new Spittle("Spittle " + i, new Date()));
+//      spittles.add(new Spittle("Spittle " + i, new Date()));
     }
     return spittles;
   }
 
   @Override
   public Spittle findOne(long spittleId) {
-    return new Spittle("Spittle " + Math.random()*10 , new Date());
+//    return new Spittle("Spittle " + Math.random()*10 , new Date());
+	  return null;
   }
 
   @Override

@@ -1,106 +1,75 @@
 package spittr;
 
-import java.io.IOException;
-import org.apache.commons.lang3.builder.EqualsBuilder;
-import org.apache.commons.lang3.builder.HashCodeBuilder;
-import javax.validation.constraints.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
+@Entity
 public class Spitter {
 
-  private Long id;
-  @NotNull
-  @Size(min = 2, max = 30)
-  private String firstName;
-  @NotNull
-  @Size(min = 2, max = 30)
-  private String lastName;
-  @NotNull
-  @Size(min = 5, max = 30)
-  private String username;
-  @NotNull
-  @Size(min = 5, max = 25)
-  private String password;
-  private String email;
+	public Spitter() {
+	}
 
-  public Spitter() {
-  }
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 
-  public Spitter(String firstName, String lastName, String username, String password,
-      String email) {
-    this(null, firstName, lastName, username, password, email);
-  }
+	private Long id;
 
-  public Spitter(Long id, String firstName, String lastName, String username,
-      String password, String email) {
-    this.id = id;
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.username = username;
-    this.password = password;
-    this.email = email;
-  }
+	@Column(name = "username")
+	private String username;
 
-  public Long getId() {
-    return id;
-  }
+	@Column(name = "password")
+	private String password;
 
-  public void setId(Long id) {
-    this.id = id;
-  }
+	@Column(name = "fullname")
+	private String fullName;
 
-  public String getFirstName() {
-    return firstName;
-  }
+	@Column(name = "email")
+	private String email;
 
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
+	@Column(name = "updateByEmail")
+	private boolean updateByEmail;
 
-  public String getLastName() {
-    return lastName;
-  }
+	public Spitter(Long id, String username, String password, String fullName, String email, boolean updateByEmail) {
+		this.id = id;
+		this.username = username;
+		this.password = password;
+		this.fullName = fullName;
+		this.email = email;
+		this.updateByEmail = updateByEmail;
+	}
 
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
-  }
+	public Long getId() {
+		return id;
+	}
 
-  public String getUsername() {
-    return username;
-  }
+	public String getUsername() {
+		return username;
+	}
 
-  public void setUsername(String username) {
-    this.username = username;
-  }
+	public String getPassword() {
+		return password;
+	}
 
-  public String getPassword() {
-    return password;
-  }
+	public String getFullName() {
+		return fullName;
+	}
 
-  public void setPassword(String password) {
-    this.password = password;
-  }
+	public String getEmail() {
+		return email;
+	}
 
-  public String getEmail() {
-    return email;
-  }
+	public boolean isUpdateByEmail() {
+		return updateByEmail;
+	}
 
-  public void setEmail(String email) {
-    this.email = email;
-  }
+	@Override
+	public String toString() {
+		return "Spitter [id=" + id + ", username=" + username + ", password=" + password + ", fullName=" + fullName
+				+ ", email=" + email + ", updateByEmail=" + updateByEmail + "]";
+	}
 
-  @Override
-  public boolean equals(Object that) {
-    return EqualsBuilder
-        .reflectionEquals(this, that, "firstName", "lastName", "username", "password", "email");
-  }
-
-  @Override
-  public int hashCode() {
-    return HashCodeBuilder
-        .reflectionHashCode(this, "firstName", "lastName", "username", "password", "email");
-  }
-
-  public static void main(String[] agrs)throws IOException {
-    System.out.println(ClassLoader.getSystemClassLoader());
-  }
+	
 }

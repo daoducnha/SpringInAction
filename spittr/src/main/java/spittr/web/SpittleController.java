@@ -41,10 +41,9 @@ public class SpittleController {
 //  }
 
   public String saveSpittle(SpittleForm form, Model model){
-
-        spittleRepository.save(
-            new Spittle(null, form.getMessage(), new Date(),
-                form.getLongitude(), form.getLatitude()));
+//        spittleRepository.save(
+//            new Spittle(null, form.getMessage(), new Date(),
+//                form.getLongitude(), form.getLatitude()));
 
     return "redirect:/spittles";
   }

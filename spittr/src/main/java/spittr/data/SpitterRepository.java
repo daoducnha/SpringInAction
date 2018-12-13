@@ -1,9 +1,17 @@
 package spittr.data;
 
+import java.util.List;
+
 import spittr.Spitter;
 
 public interface SpitterRepository {
-  public Spitter save(Spitter spitter);
-  public Spitter findByUsername(String username);
-  public Spitter findOne(long id);
+		long count();
+
+	  Spitter save(Spitter spitter);
+
+	  Spitter findOne(long id);
+
+	  Spitter findByUsername(String username);
+
+	  List<Spitter> findAll();
 }
